@@ -1,10 +1,15 @@
-format: 
-	uv run ruff format .
-lint: 
-	uv run ruff check --fix .
+all: lint format profile_julia
+format: uv run ruff format .  # Format all files with ruff
+
+lint:
+	uv run ruff check --fix .  # Lint the code and automatically fix issues
+
 profile_julia:
-	#  to sort by cumulative time spent inside each function; this gives us a view into the slowest parts of a section of code.
-	python -m cProfile -s cumulative julia_main.py
+	# To sort by cumulative time spent inside each function, which helps us identify slow parts of the code.
+	python -m cProfile -o profile.stats -s cumulative julia_main.py  # Run profiling with cumulative sorting
 
 julia_time:
-	time -p python julia_main.py
+	# Measure execution time of julia_main.py
+	time -p python julia_main.py  # Run the script and output the elapsed time
+check_stat:
+	python check_stat.py
