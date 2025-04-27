@@ -19,4 +19,6 @@ check_stat:
 	python check_stat.py
 webstat: profile_julia
 	snakeviz profile.stats
+pyspy:
+	py-spy record -o profile.svg -- python julia_main.py
 

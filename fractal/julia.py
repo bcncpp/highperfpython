@@ -1,7 +1,6 @@
 import time
 from functools import wraps
 
-
 def timefn(fn):
     @wraps(fn)
     def measure_time(*args, **kwargs):
@@ -71,7 +70,7 @@ def calc_pure_python(desired_width, max_iterations):
     # It ensures that our code evolves exactly as we'd intended
     assert sum(output) == 33219980
 
-@profile
+#@profile
 def line_calc_pure_python(desired_width, max_iterations):
     """Create a list of complex coordinates (zs) and complex parameters (cs),
     build Julia set"""
