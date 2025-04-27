@@ -13,3 +13,6 @@ julia_time:
 	time -p python julia_main.py  # Run the script and output the elapsed time
 check_stat:
 	python check_stat.py
+webstat: profile_julia
+	snakeviz profile.stats
+
